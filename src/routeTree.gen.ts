@@ -9,50 +9,393 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as SiteRouteImport } from './routes/_site'
+import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteAccountRouteImport } from './routes/_site.account'
+import { Route as SiteBridalRouteImport } from './routes/_site.bridal'
+import { Route as SiteCartRouteImport } from './routes/_site.cart'
+import { Route as SiteDressesRouteImport } from './routes/_site.dresses'
+import { Route as SiteEthnicWearRouteImport } from './routes/_site.ethnic-wear'
+import { Route as SiteFestiveRouteImport } from './routes/_site.festive'
+import { Route as SiteJeansRouteImport } from './routes/_site.jeans'
+import { Route as SiteNewArrivalsRouteImport } from './routes/_site.new-arrivals'
+import { Route as SiteSaleRouteImport } from './routes/_site.sale'
+import { Route as SiteSareesRouteImport } from './routes/_site.sarees'
+import { Route as SiteShopRouteImport } from './routes/_site.shop'
+import { Route as SiteTopsRouteImport } from './routes/_site.tops'
+import { Route as SiteWesternWearRouteImport } from './routes/_site.western-wear'
+import { Route as SiteWishlistRouteImport } from './routes/_site.wishlist'
+import { Route as SiteProductIdRouteImport } from './routes/_site.product.$id'
 
-const IndexRoute = IndexRouteImport.update({
+const SiteRoute = SiteRouteImport.update({
+  id: '/_site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteAccountRoute = SiteAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteBridalRoute = SiteBridalRouteImport.update({
+  id: '/bridal',
+  path: '/bridal',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCartRoute = SiteCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteDressesRoute = SiteDressesRouteImport.update({
+  id: '/dresses',
+  path: '/dresses',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteEthnicWearRoute = SiteEthnicWearRouteImport.update({
+  id: '/ethnic-wear',
+  path: '/ethnic-wear',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteFestiveRoute = SiteFestiveRouteImport.update({
+  id: '/festive',
+  path: '/festive',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteJeansRoute = SiteJeansRouteImport.update({
+  id: '/jeans',
+  path: '/jeans',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteNewArrivalsRoute = SiteNewArrivalsRouteImport.update({
+  id: '/new-arrivals',
+  path: '/new-arrivals',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteSaleRoute = SiteSaleRouteImport.update({
+  id: '/sale',
+  path: '/sale',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteSareesRoute = SiteSareesRouteImport.update({
+  id: '/sarees',
+  path: '/sarees',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteShopRoute = SiteShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteTopsRoute = SiteTopsRouteImport.update({
+  id: '/tops',
+  path: '/tops',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteWesternWearRoute = SiteWesternWearRouteImport.update({
+  id: '/western-wear',
+  path: '/western-wear',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteWishlistRoute = SiteWishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteProductIdRoute = SiteProductIdRouteImport.update({
+  id: '/product/$id',
+  path: '/product/$id',
+  getParentRoute: () => SiteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof SiteIndexRoute
+  '/account': typeof SiteAccountRoute
+  '/bridal': typeof SiteBridalRoute
+  '/cart': typeof SiteCartRoute
+  '/dresses': typeof SiteDressesRoute
+  '/ethnic-wear': typeof SiteEthnicWearRoute
+  '/festive': typeof SiteFestiveRoute
+  '/jeans': typeof SiteJeansRoute
+  '/new-arrivals': typeof SiteNewArrivalsRoute
+  '/sale': typeof SiteSaleRoute
+  '/sarees': typeof SiteSareesRoute
+  '/shop': typeof SiteShopRoute
+  '/tops': typeof SiteTopsRoute
+  '/western-wear': typeof SiteWesternWearRoute
+  '/wishlist': typeof SiteWishlistRoute
+  '/product/$id': typeof SiteProductIdRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/account': typeof SiteAccountRoute
+  '/bridal': typeof SiteBridalRoute
+  '/cart': typeof SiteCartRoute
+  '/dresses': typeof SiteDressesRoute
+  '/ethnic-wear': typeof SiteEthnicWearRoute
+  '/festive': typeof SiteFestiveRoute
+  '/jeans': typeof SiteJeansRoute
+  '/new-arrivals': typeof SiteNewArrivalsRoute
+  '/sale': typeof SiteSaleRoute
+  '/sarees': typeof SiteSareesRoute
+  '/shop': typeof SiteShopRoute
+  '/tops': typeof SiteTopsRoute
+  '/western-wear': typeof SiteWesternWearRoute
+  '/wishlist': typeof SiteWishlistRoute
+  '/': typeof SiteIndexRoute
+  '/product/$id': typeof SiteProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_site': typeof SiteRouteWithChildren
+  '/_site/account': typeof SiteAccountRoute
+  '/_site/bridal': typeof SiteBridalRoute
+  '/_site/cart': typeof SiteCartRoute
+  '/_site/dresses': typeof SiteDressesRoute
+  '/_site/ethnic-wear': typeof SiteEthnicWearRoute
+  '/_site/festive': typeof SiteFestiveRoute
+  '/_site/jeans': typeof SiteJeansRoute
+  '/_site/new-arrivals': typeof SiteNewArrivalsRoute
+  '/_site/sale': typeof SiteSaleRoute
+  '/_site/sarees': typeof SiteSareesRoute
+  '/_site/shop': typeof SiteShopRoute
+  '/_site/tops': typeof SiteTopsRoute
+  '/_site/western-wear': typeof SiteWesternWearRoute
+  '/_site/wishlist': typeof SiteWishlistRoute
+  '/_site/': typeof SiteIndexRoute
+  '/_site/product/$id': typeof SiteProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/bridal'
+    | '/cart'
+    | '/dresses'
+    | '/ethnic-wear'
+    | '/festive'
+    | '/jeans'
+    | '/new-arrivals'
+    | '/sale'
+    | '/sarees'
+    | '/shop'
+    | '/tops'
+    | '/western-wear'
+    | '/wishlist'
+    | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/account'
+    | '/bridal'
+    | '/cart'
+    | '/dresses'
+    | '/ethnic-wear'
+    | '/festive'
+    | '/jeans'
+    | '/new-arrivals'
+    | '/sale'
+    | '/sarees'
+    | '/shop'
+    | '/tops'
+    | '/western-wear'
+    | '/wishlist'
+    | '/'
+    | '/product/$id'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/_site/account'
+    | '/_site/bridal'
+    | '/_site/cart'
+    | '/_site/dresses'
+    | '/_site/ethnic-wear'
+    | '/_site/festive'
+    | '/_site/jeans'
+    | '/_site/new-arrivals'
+    | '/_site/sale'
+    | '/_site/sarees'
+    | '/_site/shop'
+    | '/_site/tops'
+    | '/_site/western-wear'
+    | '/_site/wishlist'
+    | '/_site/'
+    | '/_site/product/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  SiteRoute: typeof SiteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_site': {
+      id: '/_site'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof SiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_site/': {
+      id: '/_site/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/account': {
+      id: '/_site/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof SiteAccountRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/bridal': {
+      id: '/_site/bridal'
+      path: '/bridal'
+      fullPath: '/bridal'
+      preLoaderRoute: typeof SiteBridalRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/cart': {
+      id: '/_site/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof SiteCartRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/dresses': {
+      id: '/_site/dresses'
+      path: '/dresses'
+      fullPath: '/dresses'
+      preLoaderRoute: typeof SiteDressesRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/ethnic-wear': {
+      id: '/_site/ethnic-wear'
+      path: '/ethnic-wear'
+      fullPath: '/ethnic-wear'
+      preLoaderRoute: typeof SiteEthnicWearRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/festive': {
+      id: '/_site/festive'
+      path: '/festive'
+      fullPath: '/festive'
+      preLoaderRoute: typeof SiteFestiveRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/jeans': {
+      id: '/_site/jeans'
+      path: '/jeans'
+      fullPath: '/jeans'
+      preLoaderRoute: typeof SiteJeansRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/new-arrivals': {
+      id: '/_site/new-arrivals'
+      path: '/new-arrivals'
+      fullPath: '/new-arrivals'
+      preLoaderRoute: typeof SiteNewArrivalsRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/sale': {
+      id: '/_site/sale'
+      path: '/sale'
+      fullPath: '/sale'
+      preLoaderRoute: typeof SiteSaleRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/sarees': {
+      id: '/_site/sarees'
+      path: '/sarees'
+      fullPath: '/sarees'
+      preLoaderRoute: typeof SiteSareesRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/shop': {
+      id: '/_site/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof SiteShopRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/tops': {
+      id: '/_site/tops'
+      path: '/tops'
+      fullPath: '/tops'
+      preLoaderRoute: typeof SiteTopsRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/western-wear': {
+      id: '/_site/western-wear'
+      path: '/western-wear'
+      fullPath: '/western-wear'
+      preLoaderRoute: typeof SiteWesternWearRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/wishlist': {
+      id: '/_site/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof SiteWishlistRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/product/$id': {
+      id: '/_site/product/$id'
+      path: '/product/$id'
+      fullPath: '/product/$id'
+      preLoaderRoute: typeof SiteProductIdRouteImport
+      parentRoute: typeof SiteRoute
     }
   }
 }
 
+interface SiteRouteChildren {
+  SiteAccountRoute: typeof SiteAccountRoute
+  SiteBridalRoute: typeof SiteBridalRoute
+  SiteCartRoute: typeof SiteCartRoute
+  SiteDressesRoute: typeof SiteDressesRoute
+  SiteEthnicWearRoute: typeof SiteEthnicWearRoute
+  SiteFestiveRoute: typeof SiteFestiveRoute
+  SiteJeansRoute: typeof SiteJeansRoute
+  SiteNewArrivalsRoute: typeof SiteNewArrivalsRoute
+  SiteSaleRoute: typeof SiteSaleRoute
+  SiteSareesRoute: typeof SiteSareesRoute
+  SiteShopRoute: typeof SiteShopRoute
+  SiteTopsRoute: typeof SiteTopsRoute
+  SiteWesternWearRoute: typeof SiteWesternWearRoute
+  SiteWishlistRoute: typeof SiteWishlistRoute
+  SiteIndexRoute: typeof SiteIndexRoute
+  SiteProductIdRoute: typeof SiteProductIdRoute
+}
+
+const SiteRouteChildren: SiteRouteChildren = {
+  SiteAccountRoute: SiteAccountRoute,
+  SiteBridalRoute: SiteBridalRoute,
+  SiteCartRoute: SiteCartRoute,
+  SiteDressesRoute: SiteDressesRoute,
+  SiteEthnicWearRoute: SiteEthnicWearRoute,
+  SiteFestiveRoute: SiteFestiveRoute,
+  SiteJeansRoute: SiteJeansRoute,
+  SiteNewArrivalsRoute: SiteNewArrivalsRoute,
+  SiteSaleRoute: SiteSaleRoute,
+  SiteSareesRoute: SiteSareesRoute,
+  SiteShopRoute: SiteShopRoute,
+  SiteTopsRoute: SiteTopsRoute,
+  SiteWesternWearRoute: SiteWesternWearRoute,
+  SiteWishlistRoute: SiteWishlistRoute,
+  SiteIndexRoute: SiteIndexRoute,
+  SiteProductIdRoute: SiteProductIdRoute,
+}
+
+const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  SiteRoute: SiteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
